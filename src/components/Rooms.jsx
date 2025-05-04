@@ -2,6 +2,7 @@ import Room from "./Room";
 
 let rooms = [
     {
+        "id" : 1,
         "name": "Single Room",
         "price": 99,
         "type" : "Single Room",
@@ -9,6 +10,7 @@ let rooms = [
         "size": "15m²",
     },
     {
+        "id" : 2,    
         "name": "Double Room",
         "price": 149,
         "type" : "Couple Room",
@@ -16,6 +18,7 @@ let rooms = [
         "size": "25m²",
     },
     {
+        "id" : 3,
         "name": "Deluxe Room",
         "price": 199,
         "type" : "Family Room",
@@ -56,7 +59,7 @@ export default function Rooms() {
         </div>
         <div className="w3-row-padding w3-padding-16">
             {
-                rooms.map((data)=> <Room key={data.name} dataRoom={data} /> )
+                rooms.map((data)=> <Room key={data.id} dataRoom={data} /> )
             }
         </div>
     </>
