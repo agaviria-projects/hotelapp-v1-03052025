@@ -55,7 +55,7 @@ export default function RoomDetailsPage() {
         //quitar la clase de opacidad
         dotsRef.current.forEach((dot)=>{
             if(dot){
-                dot.style.classList.remove("w3-hover-opacity-off");
+                dot.classList.remove("w3-hover-opacity-off");
             }
         });
         //mostrar la imagen actual y activar la clase correspondiente
@@ -91,7 +91,12 @@ export default function RoomDetailsPage() {
                         {
                             images.map((img,i )=>(
                                 <div key={i} className="w3-col s3">
-                                   <img class="demo w3-opacity w3-hover-opacity-off" src="https://www.w3schools.com/w3images/livingroom.jpg" style={{"width":"100%","cursor":"pointer"}} onclick="currentDiv(1)" title="Living room"/>     
+                                   <img 
+                                    className={`demo w3-opacity ${i===0 ? "w3-opacity-off": ""}"w3-hover-opacity-off" `} 
+                                    src={img.src} style={{"width":"100%","cursor":"pointer"}} 
+                                    onClick={()=>imagenCurrent(i+1)} title={img.title}
+                                    ref={(dot)=>dotsRef.current[i]=dot}
+                                   />     
                                 </div> 
                             ))
                         }         
