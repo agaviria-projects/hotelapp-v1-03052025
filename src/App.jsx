@@ -9,7 +9,9 @@ function App() {
 
   return (
     <>
-        Hola estamos melos
+        <Routes>
+          <Route path="/" element={ <HomePage />}/>
+        </Routes>
     </>
   )
 }
