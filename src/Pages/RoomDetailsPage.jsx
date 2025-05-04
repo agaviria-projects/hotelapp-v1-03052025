@@ -25,7 +25,49 @@ export default function RoomDetailsPage() {
             src:"https://www.w3schools.com/w3images/livingroom2.jpg",
             title:"Living Room II"
         }
-    ]
+    ];
+    //referencias para los elementos del slider
+    let slidesRef =useRef([]);
+    let dotsRef =useRef([]);
+
+    //Funcion para mostrar slider en especificado
+    function ShowSlide(num) {
+        let newIndex = num;
+        //logica para circular los slides
+        if(newIndex > images.length){
+            newIndex = 1;
+        }
+        if(newIndex < 1){
+          newIndex = images.length;  
+        }
+        //tomar valor actual de la variable
+        setSlideIndex(newIndex);
+    }
+
+    //Efecto para actualizar las clases cuando cambie el valor del slider
+    useEffect(()=>{
+        //ocultar todas las imagenes
+        slidesRef.current.forEach((slide)=>{
+            if(slide){
+                slide.style.display="none";
+            }
+        });
+        //quitar la clase de opacidad
+        dotsRef.current.forEach((dot)=>{
+            if(dot){
+                dot.style.classList.remove("w3-hover-opacity-off");
+            }
+        });
+        //mostrar la imagen actual y activar la clase correspondiente
+        if(slidesRef.current[slideIndex - 1]){
+           slidesRef.current[slideIndex - 1].style.display="block"     
+        }
+        if(dotsRef.current[slideIndex - 1]){
+            dotsRef.current[slideIndex - 1].classList.add("w3-hover-opacity-off")     
+         }
+
+    },[slideIndex])
+
   return (
    <>
         <Menu/>
