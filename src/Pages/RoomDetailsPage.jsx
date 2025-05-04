@@ -1,10 +1,31 @@
 import { useParams } from "react-router-dom";
 import Menu from "../components/menu";
 import Footer from "../components/Footer";
+import { useState,useEffect,useRef } from "react"
 
 export default function RoomDetailsPage() {
     //console.log("parametro",useParams());
     let {id} =useParams();
+    let[slideIndex, setSlideIndex]=useState(1);
+    //datos de imagen
+    let images=[
+        {
+            src:"https://www.w3schools.com/w3images/livingroom.jpg",
+            title:"Living room"
+        },
+        {
+            src:"https://www.w3schools.com/w3images/diningroom.jpg",
+            title:"Dining Room"
+        },
+        {
+            src:"https://www.w3schools.com/w3images/bedroom.jpg",
+            title:"Bedroom"
+        },
+        {
+            src:"https://www.w3schools.com/w3images/livingroom2.jpg",
+            title:"Living Room II"
+        }
+    ]
   return (
    <>
         <Menu/>
@@ -12,7 +33,44 @@ export default function RoomDetailsPage() {
             <div className="w3-row-padding">
                 <div className="w3-half"> {/*<!--columna 1 -->*/}
                     <h2 className="w3-text-green">The Apartment #{id}</h2>
+                    <div class="w3-display-container mySlides">
                     <img src="https://www.w3schools.com/w3images/livingroom.jpg" style={{"width":"100%","marginBottom":"-6px"}}/>
+                    <div class="w3-display-bottomleft w3-container w3-black">
+                        <p>Living Room</p>
+                    </div>
+                    </div>
+                    <div class="w3-display-container mySlides">
+                    <img src="https://www.w3schools.com/w3images/diningroom.jpg" style={{"width":"100%","marginBottom":"-6px"}}/>
+                    <div class="w3-display-bottomleft w3-container w3-black">
+                        <p>Dining Room</p>
+                    </div>
+                    </div>
+                    <div class="w3-display-container mySlides">
+                    <img src="https://www.w3schools.com/w3images/bedroom.jpg" style={{"width":"100%","marginBottom":"-6px"}}/>
+                    <div class="w3-display-bottomleft w3-container w3-black">
+                        <p>Bedroom</p>
+                    </div>
+                    </div>
+                    <div class="w3-display-container mySlides">
+                    <img src="https://www.w3schools.com/w3images/livingroom2.jpg" style={{"width":"100%","marginBottom":"-6px"}}/>
+                    <div class="w3-display-bottomleft w3-container w3-black">
+                        <p>Living Room II</p>
+                    </div>
+                    </div>
+                </div>
+                <div class="w3-row-padding w3-section">
+                    <div class="w3-col s3">
+                    <img class="demo w3-opacity w3-hover-opacity-off" src="https://www.w3schools.com/w3images/livingroom.jpg" style={{"width":"100%","cursor":"pointer"}} onclick="currentDiv(1)" title="Living room"/>
+                    </div>
+                    <div class="w3-col s3">
+                    <img class="demo w3-opacity w3-hover-opacity-off" src="https://www.w3schools.com/w3images/diningroom.jpg" style={{"width":"100%","cursor":"pointer"}} onclick="currentDiv(2)" title="Dining room"/>
+                    </div>
+                    <div class="w3-col s3">
+                    <img class="demo w3-opacity w3-hover-opacity-off" src="https://www.w3schools.com/w3images/bedroom.jpg" style={{"width":"100%","cursor":"pointer"}} onclick="currentDiv(3)" title="Bedroom"/>
+                    </div>
+                    <div class="w3-col s3">
+                    <img class="demo w3-opacity w3-hover-opacity-off" src="https://www.w3schools.com/w3images/livingroom2.jpg" style={{"width":"100%","cursor":"pointer"}} onclick="currentDiv(4)" title="Second Living Room"/>
+    </div>
                 </div>
                 <div className="w3-half"> {/*<!--columna 2 -->*/}
                         <div className="w3-container">
