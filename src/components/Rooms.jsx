@@ -56,7 +56,7 @@ export default function Rooms() {
         </div>
         <div className="w3-row-padding w3-padding-16">
             {
-                rooms.map((data)=> <Room dataRoom={data} /> )
+                rooms.map((data)=> <Room key={data.name} dataRoom={data} /> )
             }
         </div>
     </>
